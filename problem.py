@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from scraper import Scraper
+from breadth_first_search import breadth_first_search
 
 class Problem(object):
     """Specification of our problem for generalised breadth first search."""
@@ -25,3 +26,7 @@ class Problem(object):
     def get_successors(self, subtree_root):
         """Return list of successors for given address."""
         return self.scraper.scrap(subtree_root)
+
+    def solve(self):
+        """Return path between given links."""
+        return breadth_first_search(self) + [self.goal_url]

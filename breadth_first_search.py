@@ -26,8 +26,9 @@ def breadth_first_search(problem):
 
         subtree_root = open_set.pop()
         print('subtree_root : ', subtree_root)
-        print('Url in open_set : {}, in closed_set : {}'.format(len(open_set),
-                                                                len(closed_set)))
+        print('Url in open_set : {},'
+              ' in closed_set : {}'.format(len(open_set),
+                                           len(closed_set)))
         # time.sleep(1)
         # We found the node we wanted so stop and emit a path.
         # if problem.is_goal(subtree_root):

@@ -5,6 +5,7 @@ from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup
 import re
+import urllib
 
 class Scraper(object):
     """docstring for Scrapper."""
@@ -42,12 +43,4 @@ class Scraper(object):
         return href and re.compile('/wiki/').match(href) and not re.compile(":").search(href)
 
     def scrap(self, url, base_url='https://fr.wikipedia.org'):
-        # content = BeautifulSoup(self.simple_get(url), 'lxml').find()
-        # res = list([])
-        # for link in BeautifulSoup(scraper.simple_get(url), 'html.parser').find_all(href=self.filter_url):
-        #     url = link.get('href')
-        #     if url not in self.history:
-        #         self.history.add(url)
-        #         res.append(url)
-        # return res
-        return [link.get('href') for link in BeautifulSoup(self.simple_get(base_url + url), 'lxml').find(id='mw-content-text').find_all(href=self.filter_url)]
+        return [urllib.parse.unquote(link.get('href')) for link in BeautifulSoup(self.simple_get(base_url + url), 'lxml', from_encoding='utf-8').find(id='mw-content-text').find_all(href=self.filter_url)]
