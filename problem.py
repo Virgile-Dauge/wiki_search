@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+"""Problem specification and solver"""
 from scraper import Scraper
 from breadth_first_search import breadth_first_search
 
+
 class Problem(object):
     """Specification of our problem for generalised breadth first search."""
+
     def __init__(self, start_url, goal_url):
         """Saving two urls to link."""
         super(Problem, self).__init__()

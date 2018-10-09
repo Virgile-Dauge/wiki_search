@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 u"""Generic breadth_first_search algorithm."""
 from collections import deque
-import time
 
 def breadth_first_search(problem):
-
     # a FIFO open_set
     open_set = deque()
 

@@ -7,15 +7,13 @@ from bs4 import BeautifulSoup
 import re
 import urllib
 
+
 class Scraper(object):
-    """docstring for Scrapper."""
-    base_url = 'https://fr.wikipedia.org'
-    def __init__(self):
-        """Coucou."""
-        super(Scraper, self).__init__()
+    """Scraper allowing to get all urls from wiki page."""
+
     def simple_get(self, url):
         """
-        Attempts to get the content at `url` by making an HTTP GET request.
+        Attempt to get the content at `url` by making an HTTP GET request.
         If the content-type of response is some kind of HTML/XML, return the
         text content, otherwise return None.
         """
